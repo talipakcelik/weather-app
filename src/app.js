@@ -19,11 +19,26 @@ async function getWeatherAsync() {
 
   let data = await response.json();
 
+  console.log(data);
   console.log(data.main);
+  // weatherData = data.main.temp;
+  renderWeather(data.main.temp);
 }
 
-weatherInput.addEventListener('change', function () {
-  getWeatherAsync();
-});
+function renderWeather(data) {
+  const weatherContainer = document.createElement('div');
+  const location = document.createElement('p');
 
-export { getWeatherAsync };
+  document.querySelector('main').append(weatherContainer);
+  weatherContainer.append();
+  console.log(data);
+}
+
+// renderWeather();
+
+weatherInput.addEventListener('change', function () {});
+
+export {
+  getWeatherAsync,
+  // renderWeather };
+};
