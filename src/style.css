@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 62.5%;
+  background-color: hsla(220, 8%, 23%, 1);
+}
+
+body {
+  max-width: 120rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 8rem 1fr;
+  height: 100vh;
+  font-size: 2.4rem;
+}
+
+menu {
+  border: 1rem solid wheat;
+}
+
+main {
+  border: 1rem solid green;
+}
+
+ion-icon[name='search-outline'] {
+  color: white;
+  font-size: 2.4rem;
+}
+
+.query-container {
+  display: flex;
+  align-items: center;
+}
+
+.weather-container {
+  color: white;
+  max-width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.temp-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
