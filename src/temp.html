@@ -7,6 +7,51 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <input type="text" name="" id="weather-query" />
+    <nav>
+      <img
+        src="https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png"
+        alt="logo"
+        class="logo"
+      />
+      <a
+        href="https://github.com/talipakcelik/weather-app"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><ion-icon class="github-icon" name="logo-github"></ion-icon
+      ></a>
+    </nav>
+    <menu>
+      <div class="query-container">
+        <input
+          type="text"
+          name=""
+          id="weather-query"
+          placeholder="Search city"
+        />
+        <div hidden id="spinner"></div>
+        <span class="search">Search</span>
+      </div>
+    </menu>
+    <main>
+      <div class="weather-container" style="display: none">
+        <div class="location-container">
+          <p class="location"></p>
+          <div class="temp-icon-container">
+            <img src="" alt="weather icon" class="icon" />
+            <span class="temp"></span>
+          </div>
+        </div>
+        <div class="description-container">
+          <span class="description"></span>
+          <span class="humidity"></span>
+          <span class="visibility"></span>
+        </div>
+      </div>
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
   </body>
 </html>
