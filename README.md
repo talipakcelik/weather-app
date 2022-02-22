@@ -8,6 +8,7 @@
 - CSS
 - Javascript
 - Webpack
+- Babel 
 - Asynchronous JavaScript and APIs
 
 ---
