@@ -37,7 +37,7 @@ module.exports = {
       title: 'weather-app',
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/temp.html'),
-      // favicon: 'checkmark.svg',
+      favicon: 'sunny.svg',
     }),
   ],
 };
