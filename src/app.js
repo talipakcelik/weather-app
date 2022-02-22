@@ -7,7 +7,6 @@ const descriptionContainer = document.querySelector('.description-container');
 const description = document.querySelector('.description');
 const humidity = document.querySelector('.humidity');
 const visibility = document.querySelector('.visibility');
-const maxTemp = document.querySelector('.max-temp');
 
 function getWeather() {
   fetch(
@@ -33,17 +32,23 @@ async function getWeatherAsync() {
 
     console.log(data.cod);
     if (data.cod === '404') {
-      weatherContainer.style.display = '';
-      location.textContent = data.message;
-      icon.style.display = 'none';
-      descriptionContainer.style.display = 'none';
-      temp.style.display = 'none';
+      renderError(data.message);
+    } else if (data.cod === '400') {
+      renderError(data.message);
     } else {
       renderWeather(data);
     }
   } catch (err) {
-    console.log(err.message);
+    renderError(err.message);
   }
+}
+
+function renderError(message) {
+  weatherContainer.style.display = '';
+  location.textContent = message;
+  icon.style.display = 'none';
+  descriptionContainer.style.display = 'none';
+  temp.style.display = 'none';
 }
 
 function renderWeather(data) {
@@ -64,11 +69,4 @@ function renderWeather(data) {
   )}${String(data.visibility).charAt(1)} km`;
 }
 
-// renderWeather();
-
-weatherInput.addEventListener('change', function () {});
-
-export {
-  getWeatherAsync,
-  // renderWeather };
-};
+export { getWeatherAsync };
