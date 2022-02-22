@@ -7,6 +7,15 @@ const descriptionContainer = document.querySelector('.description-container');
 const description = document.querySelector('.description');
 const humidity = document.querySelector('.humidity');
 const visibility = document.querySelector('.visibility');
+const spinner = document.getElementById('spinner');
+
+function activateSpinner() {
+  spinner.removeAttribute('hidden');
+}
+
+function deactivateSpinner() {
+  spinner.setAttribute('hidden', '');
+}
 
 function getWeather() {
   fetch(
@@ -15,9 +24,7 @@ function getWeather() {
     .then(function (response) {
       return response.json();
     })
-    .then(function (data) {
-      console.log(data);
-    });
+    .then(function (data) {});
 }
 
 async function getWeatherAsync() {
@@ -28,18 +35,19 @@ async function getWeatherAsync() {
 
     let data = await response.json();
 
-    console.log(data);
-
-    console.log(data.cod);
     if (data.cod === '404') {
       renderError(data.message);
+      deactivateSpinner();
     } else if (data.cod === '400') {
       renderError(data.message);
+      deactivateSpinner();
     } else {
       renderWeather(data);
+      deactivateSpinner();
     }
   } catch (err) {
     renderError(err.message);
+    deactivateSpinner();
   }
 }
 
@@ -69,4 +77,4 @@ function renderWeather(data) {
   )}${String(data.visibility).charAt(1)} km`;
 }
 
-export { getWeatherAsync };
+export { getWeatherAsync, activateSpinner };
