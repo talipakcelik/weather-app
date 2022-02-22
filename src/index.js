@@ -1,9 +1,11 @@
-import { getWeatherAsync, renderWeather } from './app.js';
+import { getWeatherAsync, activateSpinner } from './app.js';
 import style from './style.css';
-// getWeatherAsync();
 
 const search = document.querySelector('.search');
+const weatherInput = document.querySelector('#weather-query');
 
 search.addEventListener('click', function () {
-  getWeatherAsync();
+  getWeatherAsync(weatherInput.value, 'metric');
+  document.querySelector('#weather-query').value = '';
+  activateSpinner();
 });
