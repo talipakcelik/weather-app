@@ -11,7 +11,10 @@ const spinner = document.getElementById('spinner');
 async function getWeatherAsync(location, unit) {
   try {
     let response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=${unit}&appid=027a1065ba3125e88ef0663d3b8231e9`
+      `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=${unit}&appid=027a1065ba3125e88ef0663d3b8231e9`,
+      {
+        mode: 'cors',
+      }
     );
 
     let data = await response.json();
