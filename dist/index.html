@@ -5,6 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>weather-app</title>
-  <script defer src="runtime.db64edc6e5f1734d870a.js"></script><script defer src="index.a5066373220c68963c6a.js"></script></head>
-  <body></body>
+  <script defer src="runtime.cb63576b607c167cf0c0.js"></script><script defer src="index.8751b3732b2463ae8868.js"></script></head>
+  <body>
+    <nav>
+      <img
+        src="https://openweathermap.org/themes/openweathermap/assets/img/logo_white_cropped.png"
+        alt="logo"
+        class="logo"
+      />
+      <a
+        href="https://github.com/talipakcelik/weather-app"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><ion-icon class="github-icon" name="logo-github"></ion-icon
+      ></a>
+    </nav>
+    <menu>
+      <div class="query-container">
+        <input
+          type="text"
+          name=""
+          id="weather-query"
+          placeholder="Search city"
+        />
+        <span class="search">Search</span>
+      </div>
+    </menu>
+    <main>
+      <div class="weather-container" style="display: none">
+        <div class="location-container">
+          <p class="location"></p>
+          <div class="temp-icon-container">
+            <img src="" alt="weather icon" class="icon" />
+            <span class="temp"></span>
+          </div>
+        </div>
+        <div class="description-container">
+          <span class="description"></span>
+          <span class="humidity"></span>
+          <span class="visibility"></span>
+        </div>
+      </div>
+    </main>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </body>
 </html>
