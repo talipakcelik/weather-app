@@ -1,4 +1,3 @@
-const weatherInput = document.querySelector('#weather-query');
 const weatherContainer = document.querySelector('.weather-container');
 const location = document.querySelector('.location');
 const temp = document.querySelector('.temp');
@@ -9,45 +8,27 @@ const humidity = document.querySelector('.humidity');
 const visibility = document.querySelector('.visibility');
 const spinner = document.getElementById('spinner');
 
-function activateSpinner() {
-  spinner.removeAttribute('hidden');
-}
-
-function deactivateSpinner() {
-  spinner.setAttribute('hidden', '');
-}
-
-function getWeather() {
-  fetch(
-    'http://api.openweathermap.org/data/2.5/weather?q=Ankara&appid=027a1065ba3125e88ef0663d3b8231e9'
-  )
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {});
-}
-
-async function getWeatherAsync() {
+async function getWeatherAsync(location, unit) {
   try {
     let response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${weatherInput.value}&units=metric&appid=027a1065ba3125e88ef0663d3b8231e9`
+      `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=${unit}&appid=027a1065ba3125e88ef0663d3b8231e9`
     );
 
     let data = await response.json();
 
     if (data.cod === '404') {
-      renderError(data.message);
       deactivateSpinner();
+      renderError(data.message);
     } else if (data.cod === '400') {
+      deactivateSpinner();
       renderError(data.message);
-      deactivateSpinner();
     } else {
-      renderWeather(data);
       deactivateSpinner();
+      renderWeather(data);
     }
   } catch (err) {
-    renderError(err.message);
     deactivateSpinner();
+    renderError(err.message);
   }
 }
 
@@ -75,6 +56,14 @@ function renderWeather(data) {
   visibility.textContent = `Visibility: ${String(data.visibility).charAt(
     0
   )}${String(data.visibility).charAt(1)} km`;
+}
+
+function activateSpinner() {
+  spinner.removeAttribute('hidden');
+}
+
+function deactivateSpinner() {
+  spinner.setAttribute('hidden', '');
 }
 
 export { getWeatherAsync, activateSpinner };
